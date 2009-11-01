@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# download xkcd strips
+#
+
+save_dir="/home/data/comics/xkcd/"
+
+if [ ! -d "$save_dir" ]; then
+  mkdir $save_dir
+fi
+
+max_id=`wget -q -O - http://www.xkcd.org | grep 'link to this comic' | sed 's/.*xkcd.com.\([^\/]*\).*/\1/'`
+
+for i in `seq 1 $max_id`
+do
+  num=`printf "%04d" $i`
+  lso=`ls $save_dir | egrep ^$num`
+  if [ "$lso" == "" ]; then
+    comic=`wget -q -O - http://xkcd.com/$i/ | grep 'Image URL' | cut -d\/ -f6 | cut -d\< -f1`
+    if [ "$comic" != "" ]; then
+      wget http://imgs.xkcd.com/comics/$comic -O $save_dir/$num-$comic
+    else
+      echo "Unable to retrieve $num"
+    fi
+  fi
+done

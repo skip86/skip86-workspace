@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+# extract compressed archive
+#
+
+if [ -z $1 ]; then
+    echo
+    echo "USAGE: extract [source] <destination>"
+    echo
+    exit 0;
+fi
+
+if [ "$(dirname '$1')" == "." ]; then
+	source="$(pwd)/$1"
+else
+	source="$(dirname '$1')/$(basename '$1')"
+fi
+
+if [ -z $2 ]; then
+	destination="$(pwd)"
+else
+	destination="$2"
+fi
+if [ ! -d "$destination" ];
+then
+    mkdir "$destination"
+fi
+cd $destination
+
+if [ -f $source ] ; then
+	case $source in
+		*.tar.bz2)   tar xvjf $source		;;
+		*.tar.gz)    tar xvzf $source		;;
+		*.tar.xz)    tar xvJf $source		;;
+		*.bz2)       bunzip2 $source		;;
+		*.rar)       unrar x $source		;;
+		*.gz)        gunzip $source			;;
+		*.tar)       tar xvf $source		;;
+		*.tbz2)      tar xvjf $source		;;
+		*.tgz)       tar xvzf $source		;;
+		*.zip)       unzip $source			;;
+		*.Z)         uncompress $source		;;
+		*.7z)        7z x $source			;;
+		*.xz)        unxz $source			;;
+		*.exe)       cabextract $source		;;
+		*)           echo "$source: unrecognized file compression" ;;
+	esac
+else
+	echo "$source is not a valid file"
+fi

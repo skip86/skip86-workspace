@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+	<menu id="apps-accessories-menu" label="Accessories">
+		<item label="Calculator">
+			<action name="Execute">
+				<execute>
+					galculator
+				</execute>
+			</action>
+		</item>
+		<item label="Chars Map">
+			<action name="Execute">
+				<execute>
+					gucharmap
+				</execute>
+			</action>
+		</item>
+		<item label="Xarchiver">
+			<action name="Execute">
+				<execute>
+					xarchiver
+				</execute>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-graphics-menu" label="Graphics">
+		<item label="Gimp">
+			<action name="Execute">
+				<command>
+					gimp
+				</command>
+			</action>
+		</item>
+		<item label="GPicView">
+			<action name="Execute">
+				<execute>
+					gpicview
+				</execute>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-net-menu" label="Internet">
+		<item label="aMule">
+			<action name="Execute">
+				<execute>
+					amule
+				</execute>
+			</action>
+		</item>
+		<item label="Deluge">
+			<action name="Execute">
+				<execute>
+					deluge
+				</execute>
+			</action>
+		</item>
+		<item label="Filezilla">
+			<action name="Execute">
+				<execute>
+					filezilla
+				</execute>
+			</action>
+		</item>
+		<item label="XChat">
+			<action name="Execute">
+				<command>
+					xchat
+				</command>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-multimedia-menu" label="Multimedia">
+		<item label="Brasero">
+			<action name="Execute">
+				<execute>
+					brasero
+				</execute>
+			</action>
+		</item>
+		<item label="Exaile">
+			<action name="Execute">
+				<execute>
+					exaile
+				</execute>
+			</action>
+		</item>
+		<item label="Gnomad2">
+			<action name="Execute">
+				<execute>
+					gnomad2
+				</execute>
+			</action>
+		</item>
+		<item label="Vlc">
+			<action name="Execute">
+				<execute>
+					vlc
+				</execute>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-office-menu" label="Office">
+		<item label="Calc">
+			<action name="Execute">
+				<execute>
+					soffice -calc
+				</execute>
+			</action>
+		</item>
+		<item label="Impress">
+			<action name="Execute">
+				<execute>
+					soffice -impress
+				</execute>
+			</action>
+		</item>
+		<item label="Writer">
+			<action name="Execute">
+				<execute>
+					soffice -writer
+				</execute>
+			</action>
+		</item>
+		<item label="ePDFView">
+			<action name="Execute">
+				<execute>
+					epdfview
+				</execute>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-programming-menu" label="Programming">
+		<item label="Eclipse">
+			<action name="Execute">
+				<execute>
+					eclipse
+				</execute>
+			</action>
+		</item>
+		<item label="Geany">
+			<action name="Execute">
+				<execute>
+					geany
+				</execute>
+			</action>
+		</item>
+	</menu>
+	<menu id="openbox-menu" label="Openbox">
+		<item label="Openbox Configuration Manager">
+			<action name="Execute">
+				<command>
+					obconf
+				</command>
+			</action>
+		</item>
+		<item label="LxAppearance">
+			<action name="Execute">
+				<execute>
+					lxappearance
+				</execute>
+			</action>
+		</item>
+		<separator/>
+		<item label="Restart Openbox">
+			<action name="Restart"/>
+		</item>
+		<item label="Exit Openbox">
+			<action name="Exit"/>
+		</item>
+	</menu>
+	<menu id="utilities-menu" label="Utilities">
+		<item label="Alsa Mixer">
+			<action name="Execute">
+				<execute>
+					lxterminal -e alsamixer
+				</execute>
+			</action>
+		</item>
+		<item label="Cups Admin">
+			<action name="Execute">
+				<execute>
+					firefox http://localhost:631/
+				</execute>
+			</action>
+		</item>
+		<item label="Nvidia Settings">
+			<action name="Execute">
+				<execute>
+					nvidia-settings
+				</execute>
+			</action>
+		</item>
+	</menu>
+	<menu id="root-menu" label="Openbox 3">
+		<separator label="Applications"/>
+		<menu id="apps-accessories-menu"/>
+		<menu id="apps-graphics-menu"/>
+		<menu id="apps-net-menu"/>
+		<menu id="apps-multimedia-menu"/>
+		<menu id="apps-office-menu"/>
+		<menu id="apps-programming-menu"/>
+		<separator/>
+		<item label="LxTerminal">
+			<action name="Execute">
+				<execute>
+					lxterminal
+				</execute>
+			</action>
+		</item>
+		<item label="Firefox">
+			<action name="Execute">
+				<execute>
+					firefox
+				</execute>
+			</action>
+		</item>
+		<item label="PCManFM">
+			<action name="Execute">
+				<execute>
+					pcmanfm
+				</execute>
+			</action>
+		</item>
+		<separator label="System"/>
+		<menu id="openbox-menu"/>
+		<menu id="utilities-menu"/>
+		<separator/>
+		<item label="Lock Screen">
+			<action name="Execute">
+				<execute>
+					xscreensaver-command --lock
+				</execute>
+			</action>
+		</item>
+		<item label="Reboot">
+			<action name="Execute">
+				<execute>
+					sudo /sbin/reboot
+				</execute>
+			</action>
+		</item>
+		<item label="Shutdown">
+			<action name="Execute">
+				<execute>
+					sudo /sbin/shutdown -h now
+				</execute>
+			</action>
+		</item>
+	</menu>
+</openbox_menu>

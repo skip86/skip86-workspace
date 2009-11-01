@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# /etc/rc.d/net-connect: Local network startup script.
+#
+
+iwconfig wlan0 channel 11
+iwconfig wlan0 essid madouc
+wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_supplicant.conf

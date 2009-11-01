@@ -1,0 +1,39 @@
+#avoid flicker
+double_buffer yes
+
+#own window to run simultanious 2 or more conkys
+own_window  yes
+own_window_transparent no
+own_window_type normal
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager 
+
+#borders
+draw_borders no
+border_margin 1
+
+#shades
+draw_shades no
+
+#position
+gap_x 0
+gap_y 0
+alignment top
+
+#behaviour
+update_interval 1
+
+#colour
+default_color  a2c642
+#default_shade_color 000000
+own_window_colour 262626
+
+#font
+use_xft yes
+xftfont Sans:size=9
+
+#to prevent window from moving
+use_spacer no
+minimum_size 1680 0
+
+TEXT
+${voffset -1}${offset 60}${color e0e0e0}${font} $sysname $kernel $machine${color}  >>  Cpu: ${color e0e0e0}${font}${cpu cpu1}% + ${cpu cpu2}% ${color} Memory: ${color e0e0e0}${font}${mem}${color}  |  ${color}Root: ${color e0e0e0}${font}${fs_free /} ${color} Data: ${color e0e0e0}${font}${fs_free /data}${color}  |  ${color}Uptime: ${color e0e0e0}${font}${uptime_short}${color}  |  ${color}Net: ${color e0e0e0}${font}${downspeed wlan0} Kb/s ${color} ${totaldown wlan0} downloaded${color} ${color} ${color e0e0e0}${upspeed wlan0} Kb/s ${color} ${totalup wlan0} uploaded${color}  |  ${color}Arch: ${color e0e0e0}${font}${execi 3600 perl /home/skip/scripts/list_upgradable}${color}  |  Gmail: ${color e0e0e0}${execi 3600 python /home/skip/scripts/gmail}${color}  |  ${color}Weather: ${color e0e0e0} ${execi 3600 sh /home/skip/scripts/weather "EUR|IT|IT007|ROMA"} ${color}

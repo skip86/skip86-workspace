@@ -1,0 +1,55 @@
+#!/bin/bash
+#
+# backup personal data and config
+#
+
+date=$(date +%d%m%y)
+# where to save backups
+backupdir="/home/data/.backup"
+# directories to backup
+dirs[0]="/boot"
+dirs[1]="/etc"
+dirs[2]="/var/log"
+dirs[3]="/home/skip"
+numdirs=${#dirs[*]}
+
+# if the backup dir doesn't exist create it
+if [ ! -d "$backupdir" ];
+then
+    mkdir "$backupdir"
+fi
+cd "$backupdir"
+
+# backup loop
+dirname="$date"
+if [ -d "$dirname" ];
+then
+	i=0
+	while [ -d "$dirname""_"$i ]
+	do
+		let i=$i+1
+	done
+	dirname+="_"$i
+fi
+mkdir "$dirname"
+i=0
+while [ $i -lt $numdirs ]
+do
+	filename="$(basename ${dirs[$i]})"
+	tar cpzf "$dirname/$filename".tar.gz "${dirs[$i]}" || exit 1
+	let i=$i+1
+done
+
+# number of backups to keep
+keep=4
+
+# cleanup loop
+num=$(ls | wc -l)
+for f in $(ls -tr1);
+do
+	if [ $keep -lt $num ];
+	then
+		rm -r $f
+		let num=$num-1
+	fi
+done

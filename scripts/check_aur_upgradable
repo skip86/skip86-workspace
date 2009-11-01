@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# check upgradable installed packages from aur
+#
+
+# abs local directory
+ABS="/home/skip/.abs"
+
+cd "$ABS"
+for i in $( ls ); do
+	echo -e "Processing $i..."
+	wget -q http://aur.archlinux.org/packages/$i/$i/PKGBUILD -O $i/PKGBUILD.new
+	if diff $i/PKGBUILD $i/PKGBUILD.new > /dev/null ; then
+		rm $i/PKGBUILD.new
+	else
+		diff -u $i/PKGBUILD $i/PKGBUILD.new
+	fi
+done

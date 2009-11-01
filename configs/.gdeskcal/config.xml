@@ -1,0 +1,10 @@
+<config>
+  <include-path value="/home/skip/.gdeskcal/config.xml"/>
+  <geometry>
+    <window>
+      <y value="835"/>
+      <x value="1460"/>
+    </window>
+  </geometry>
+  <skin include="skins/living_nature/skin.xml"/>
+</config>
